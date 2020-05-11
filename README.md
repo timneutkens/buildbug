@@ -1,30 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/zeit/next.js/tree/canary/packages/create-next-app).
+# NextJS build bugs
 
-## Getting Started
+# Bug-1
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
+```
+$ yarn build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+causes
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```
+$ next build
+Creating an optimized production build  
 
-## Learn More
+Compiled successfully.
 
-To learn more about Next.js, take a look at the following resources:
+Automatically optimizing pages ...
+Error occurred prerendering page "/[...slugs]". Read more: https://err.sh/next.js/prerender-error:
+Error: Minified React error #130; visit https://reactjs.org/docs/error-decoder.html?invariant=130&args[]=object&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Error occurred prerendering page "/404". Read more: https://err.sh/next.js/prerender-error:
+Error: Minified React error #130; visit https://reactjs.org/docs/error-decoder.html?invariant=130&args[]=object&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.
 
-You can check out [the Next.js GitHub repository](https://github.com/zeit/next.js/) - your feedback and contributions are welcome!
+Error occurred prerendering page "/". Read more: https://err.sh/next.js/prerender-error:
+Error: Minified React error #130; visit https://reactjs.org/docs/error-decoder.html?invariant=130&args[]=object&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.
 
-## Deploy on ZEIT Now
+Error occurred prerendering page "/blog". Read more: https://err.sh/next.js/prerender-error:
+Error: Minified React error #130; visit https://reactjs.org/docs/error-decoder.html?invariant=130&args[]=object&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.
 
-The easiest way to deploy your Next.js app is to use the [ZEIT Now Platform](https://zeit.co/) from the creators of Next.js.
+> Build error occurred
+Error: Export encountered errors
+    at _default (/Users/ivankleshnin/Projects/buildbug/node_modules/next/dist/export/index.js:19:1164)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async build (/Users/ivankleshnin/Projects/buildbug/node_modules/next/dist/build/index.js:36:218)
+error Command failed with exit code 1.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
